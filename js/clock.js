@@ -18,10 +18,26 @@ var tag = document.createElement('script');
 
   var player;
   function onYouTubeIframeAPIReady() {
-    player = new YT.Player('player', {});
+    player = new YT.Player('player', {
+        events: {
+            'onStateChange': onPlayerStateChange,
+            'onError': onPlayerError
+        }      
+    });
   }
 
+function onPlayerStateChange(event)
+{
+    if (event.data == 0)
+        player.playVideo(); //restart if player finished playing
+    else if(event.data == 2)
+        player.stopVideo();
+}
 
+function onError(event)
+{
+    message.textContent = "Nothing wrong here, kupo! But maybe you should refresh the page...just in case."
+}
 
 function padTime(time)
 {
