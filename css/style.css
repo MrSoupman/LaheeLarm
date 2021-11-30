@@ -1,0 +1,32 @@
+html{
+    display:table;
+    margin:auto;
+}
+
+html, body{
+    height: 100%;
+}
+
+body {
+    background: url("../img/FFXIV_PUB_FANFESTIVAL_2018_LASVEGAS_19.png") no-repeat center center fixed;
+    background-color: black;
+    background-size: fill;
+    font-family: Arial;
+    font-size: large;
+    color:white;
+    vertical-align:middle;
+    text-shadow:
+    -1px -1px 0 #000,
+     0   -1px 0 #000,
+     1px -1px 0 #000,
+     1px  0   0 #000,
+     1px  1px 0 #000,
+     0    1px 0 #000,
+    -1px  1px 0 #000,
+    -1px  0   0 #000;
+}
+
+canvas {
+    height: 20%;
+    width: 100%;
+}

@@ -1,0 +1,34 @@
+ <!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<html>
+    <body>
+        <canvas id="clock"></canvas>
+        <br>
+        <div class="form">
+            <label for="hour">Hour</label>
+            <input id="hour" type="number" min="1" max="12" value="12">
+            <label for="min">Minute</label>
+            <input id="min" type="number" min="0" max="59" value="00">
+            <select id="ampm" type="">
+                <option value="PM">PM</option>
+                <option value="AM">AM</option>
+            </select>
+            <button onclick="set(document.getElementById('hour').value, document.getElementById('min').value)">Set Alarm</button>
+        </div>
+        <br>
+        <p id="message">Alarm not set.</p>
+        <audio id=audio>
+            <source src="snd/Soken.ogg" type="audio/ogg">
+            Your browser doesn't want to hear soken.
+        </audio>
+        <button id="stop" type="button" onclick="stop()" disabled>Stop alarm</button>
+        <button id="snooze" type="button" onclick="snooze()" disabled>Snooze</button>
+        
+        <script src="js/clock.js">
+            
+        </script>
+    </body>
+</html> 
