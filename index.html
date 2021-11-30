@@ -5,7 +5,7 @@
 </head>
 <html>
     <body>
-        <canvas id="clock"></canvas>
+        <p id="clock"></p>
         <br>
         <div class="form">
             <label for="hour">Hour</label>
@@ -26,9 +26,19 @@
         </audio>
         <button id="stop" type="button" onclick="stop()" disabled>Stop alarm</button>
         <button id="snooze" type="button" onclick="snooze()" disabled>Snooze</button>
+        <br>
+        <br>
+        <iframe id="player"
+        width="300" height="300"
+        src="https://www.youtube.com/embed/ascfjJXDWjo?enablejsapi=1"
+        frameborder="0"
+        style="border: solid 4px #37474F"
+        ></iframe>
+
+        <p class="legal">FINAL FANTASY is a registered trademark of Square Enix Holdings Co., Ltd.</p>
+        <p class="legal">© SQUARE ENIX CO., LTD. All Rights Reserved.</p>
+
+        <script src="js/clock.js"></script>
         
-        <script src="js/clock.js">
-            
-        </script>
     </body>
 </html> 

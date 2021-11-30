@@ -1,5 +1,4 @@
-var canvas = document.getElementById("clock");
-var ctx = canvas.getContext("2d");
+var time = document.getElementById("clock");
 var aud = document.getElementById("audio");
 var btnStop = document.getElementById("stop")
 var btnSnooze = document.getElementById("snooze");
@@ -8,9 +7,19 @@ var alarmhr;
 var alarmmin;
 var alarmpm;
 var stopped = false;
-ctx.font = "30px Arial";
-ctx.fillStyle = "white";
-ctx.textAlign = 'center';
+var soken = false;
+var player;
+
+var tag = document.createElement('script');
+  tag.id = 'iframe-demo';
+  tag.src = 'https://www.youtube.com/iframe_api';
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+  var player;
+  function onYouTubeIframeAPIReady() {
+    player = new YT.Player('player', {});
+  }
 
 
 
@@ -38,20 +47,24 @@ function clock()
     }
     Hour = ('0' + Hour%24).slice(-2)
     Minute = ('0' + date.getMinutes()).slice(-2);
-    ctx.clearRect(0,0,canvas.width, canvas.height);
-    var time = Hour + ":" + Minute;
-    time = pm ? time.concat(" PM") : time.concat(" AM");
-    ctx.strokeText(time,canvas.width/2,canvas.height/2,canvas.width);
-    ctx.fillText(time,canvas.width/2,canvas.height/2,canvas.width);
+    var strtime = Hour + ":" + Minute;
+    strtime = pm ? strtime.concat(" PM") : strtime.concat(" AM");
+    time.textContent = strtime;
 }
 
 function play()
 {
-    aud.play();
+    var prob = Math.floor((Math.random() * 100) + 1);
+    if(prob >= 85)
+        aud.play();
+    else
+        player.playVideo();
+    stopped = true;
 }
 
 function stop()
 {
+    player.stopVideo();
     aud.pause();
     aud.load();
     btnSnooze.disabled = true;
@@ -91,4 +104,4 @@ function set(hour, min)
     stopped = false;
 }
 
-setInterval(clock, 250);
+setInterval(clock, 500);
