@@ -58,13 +58,19 @@ function play()
     if(prob >= 85)
         aud.play();
     else
+    {
+        document.getElementById('player').width = 300;
+        document.getElementById('player').height = 300;
         player.playVideo();
+    }
     stopped = true;
 }
 
 function stop()
 {
     player.stopVideo();
+    document.getElementById('player').width = 0;
+    document.getElementById('player').height = 0;
     aud.pause();
     aud.load();
     btnSnooze.disabled = true;
