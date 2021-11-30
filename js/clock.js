@@ -34,7 +34,7 @@ function onPlayerStateChange(event)
         player.stopVideo();
 }
 
-function onError(event)
+function onPlayerError(event)
 {
     message.textContent = "Nothing wrong here, kupo! But maybe you should refresh the page...just in case."
 }
